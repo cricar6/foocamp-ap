@@ -33,3 +33,7 @@
   grid-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
 }
+
+@mixin overlap-down {
+  margin-bottom: -80px;
+}

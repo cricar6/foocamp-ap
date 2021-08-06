@@ -2,16 +2,16 @@ import Navigation from './Navigation';
 
 export default function Layout({ children }) {
   return (
-    <div className="layout">
+    <main className="layout">
       <Navigation />
 
-      <div className="page-content">
+      <section className="page-content">
         { children }
-      </div>
+      </section>
 
       <footer>
         <p>A footer</p>
       </footer>
-    </div>
+    </main>
   );
 }

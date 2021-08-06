@@ -1,0 +1,44 @@
+.last-projects {
+  @include overlap-down();
+
+  &__heading {
+    @include container();
+    @include columns-desktop();
+
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    @include heading-1();
+
+    color: $ayp-blue;
+    grid-column: 1 / 5;
+  }
+
+  &__categories {
+    align-items: center;
+    display: flex;
+    grid-column: 6 / 13;
+    justify-content: space-around;
+  }
+
+  .project-icon {
+    @include normalize-interactable();
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .placeholder-image {
+      background: black;
+      height: 58px;
+      margin-bottom: 20px;
+      width: 58px;
+    }
+
+    &__body {
+      font-family: $main-font;
+      font-size: 14px;
+    }
+  }
+}

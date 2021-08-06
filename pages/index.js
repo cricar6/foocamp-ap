@@ -1,4 +1,6 @@
 import getPageData from '../utils/api';
+import BigImageLayout from '../components/layouts/BigImageLayout';
+import LastProjects from '../components/sections/LastProjects';
 
 export const getServerSideProps = async () => {
   const pageData = await getPageData('inicio');
@@ -12,14 +14,24 @@ export const getServerSideProps = async () => {
 };
 
 export default function Recipes({ components }) {
+  const projectSection = components.find((component) => component.sys.contentType.sys.id === 'projectsSection');
+
   return (
     <div className="home">
-      <h1>
-        Index page
-      </h1>
-      {components.map((component) => (
-        <p key={component.sys.id}>{component.fields.title === 'string' ? component.fields.title : '' }</p>
-      ))}
+
+      <LastProjects
+        title={projectSection.fields.title}
+        categories={projectSection.fields.categoriesList}
+      >
+        <BigImageLayout
+          content={projectSection.fields.projectTitle}
+          image={{
+            url: projectSection.fields.sectionImage.fields.file.url,
+            title: projectSection.fields.sectionImage.fields.title,
+          }}
+        />
+      </LastProjects>
+
     </div>
   );
 }
