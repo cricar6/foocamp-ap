@@ -1,1 +1,18 @@
-// layout of two-columns icons
+.big-image-layout {
+  @include container();
+  @include columns-desktop();
+
+  &__content {
+    grid-column: 1 / 7;
+  }
+
+  &__image {
+    grid-column: 7 / 12;
+
+    img {
+      height: 730px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
