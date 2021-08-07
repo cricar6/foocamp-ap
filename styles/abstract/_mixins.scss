@@ -6,6 +6,7 @@
   line-height: 16px;
   padding: 15px 45px;
   text-transform: uppercase;
+  transition: 0.2s ease all;
 }
 
 @mixin link-generic() {
@@ -47,7 +48,16 @@
   @include normalize-interactable();
 
   background: $ayp-blue;
-  color: white;
+  color: $ayp-grey-0;
+
+  &:hover {
+    background: $ayp-blue--dark;
+  }
+
+  &.disabled {
+    background: $ayp-blue--light;
+    cursor: default;
+  }
 }
 
 @mixin button-secondary {
@@ -56,9 +66,25 @@
 
   background: $ayp-grey-0;
   color: $ayp-orange;
+
+  &:hover {
+    background: $ayp-orange;
+    color: $ayp-grey-0;
+  }
+
+  &.disabled {
+    background: $ayp-grey-300;
+    color: $ayp-grey-700;
+    cursor: default;
+  }
 }
 
 @mixin inline-button {
   @include link-generic();
   @include normalize-interactable();
+
+  &:hover {
+    color: $ayp-blue;
+    transition: 0.2s ease all;
+  }
 }
