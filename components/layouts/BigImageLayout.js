@@ -1,14 +1,32 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-export default function BigImageLayout({ content, image }) {
-  return (
-    <div className="big-image-layout">
-      <div className="big-image-layout__content">
+export default function BigImageLayout({
+  title, contentType, content, image, variation,
+}) {
+  function getContent(innerContent, innerContentType) {
+    if (innerContentType === 'rich') {
+      return documentToReactComponents(innerContent);
+    } if (innerContentType === 'simple') {
+      return <p>{innerContent}</p>;
+    }
+    return '';
+  }
 
-        {content ? documentToReactComponents(content) : null}
+  return (
+    <div
+      className={
+        (variation !== 'none')
+          ? `big-image-layout big-image-layout--${variation}`
+          : 'big-image-layout'
+      }
+    >
+      <div className="big-image-layout__content">
+        { title
+          ? <h2>{ title }</h2> : null }
+        { getContent(content, contentType) }
         <a
           href="www.google.com"
-          className="button-primary"
+          className="big-image-layout__button"
         >
           Entérate de todos
         </a>
@@ -18,8 +36,8 @@ export default function BigImageLayout({ content, image }) {
         role="presentation"
         aria-hidden="true"
       >
-        {image
-          ? <img src={`https://${image.url}`} alt={image.title} /> : null}
+        { image
+          ? <img src={`https://${image.url}`} alt={image.title} /> : null }
       </div>
     </div>
   );

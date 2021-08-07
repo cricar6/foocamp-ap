@@ -6,7 +6,8 @@ export default function ProjectIcon({
       href={url}
       className={
         (variation !== 'none')
-          ? (`project-icon project-icon--${variation}`) : 'project-icon'
+          ? `project-icon project-icon--${variation}`
+          : 'project-icon'
       }
     >
       <div className="placeholder-image">{icon}</div>

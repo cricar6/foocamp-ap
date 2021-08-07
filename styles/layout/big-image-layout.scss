@@ -4,6 +4,23 @@
 
   &__content {
     grid-column: 1 / 7;
+
+    p {
+      @include body();
+
+      margin-bottom: 50px;
+      max-width: 480px;
+    }
+
+    h2 {
+      @include heading-1();
+
+      margin-bottom: 50px;
+    }
+  }
+
+  &__button {
+    @include button-primary();
   }
 
   &__image {
@@ -13,6 +30,21 @@
       height: 730px;
       width: 100%;
       object-fit: cover;
+    }
+  }
+
+  &--blue-background {
+    p,
+    h2 {
+      color: white;
+    }
+
+    h2 {
+      margin-top: 200px;
+    }
+
+    .big-image-layout__button {
+      @include button-secondary();
     }
   }
 }
