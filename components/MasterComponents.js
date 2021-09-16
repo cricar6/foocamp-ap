@@ -1,7 +1,6 @@
 import React from 'react';
-import dictionary from '../utils/componentsDictionary';
 
-export default function Home({ components }) {
+export default function MasterComponents({ components, dictionary }) {
   return (
     <>
       {components.map(({ fields, sys: { id, contentType: { sys: { id: sectionType } } } }) => {

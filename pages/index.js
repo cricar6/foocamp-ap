@@ -1,15 +1,19 @@
 import getPageData from '../utils/api';
-import { HOME } from '../utils/constants';
-import Home from '../components/Home';
+import { HOME, GENERAL } from '../utils/constants';
+import dictionary from '../utils/componentsDictionary';
+import MasterComponents from '../components/MasterComponents';
 
 export const getServerSideProps = async () => {
   try {
     const pageData = await getPageData(HOME);
+    const masterPage = await getPageData('', GENERAL);
 
     return {
       props: {
         data: pageData,
         components: pageData.fields.components,
+        topComponents: masterPage.fields.topCompoents,
+        botComponents: masterPage.fields.bottomComponents,
       },
     };
   } catch (e) {
@@ -20,7 +24,7 @@ export const getServerSideProps = async () => {
 export default function HomeView({ components }) {
   return (
     <div className="home">
-      <Home components={components} />
+      <MasterComponents components={components} dictionary={dictionary} />
     </div>
   );
 }
