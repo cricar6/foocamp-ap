@@ -9,6 +9,7 @@ export default function Footer({ fields }) {
     title,
     companyDescription: description,
     contactNumber: phone,
+    contact: contactInfo,
     socialNetworksSection: iconsFooter,
   } = fields;
   return (
@@ -47,12 +48,25 @@ export default function Footer({ fields }) {
             {CONTACT_LABEL}
           </p>
           <div className="links">
-            <Link passHref href={iconsFooter[3].fields.link}>
-              <a href="/" className="button-main button-footer" target="_blank" rel="noreferrer">
-                <img src="/icons/icon-whatsapp.svg" alt="icon-whatsapp" />
-                {iconsFooter[3].fields.title}
-              </a>
-            </Link>
+            {contactInfo.map((info) => (
+              info.fields.link
+                && (
+                <Link passHref key={info.sys.id} href={info.fields.link}>
+                  <a href="/" className="button-main button-footer" target="_blank" rel="noreferrer">
+                    {info.fields.icon
+                      && (
+                        <img
+                          role="presentation"
+                          aria-hidden="true"
+                          src={info.fields.icon.fields.file.url}
+                          alt=""
+                        />
+                      )}
+                    {info.fields.title}
+                  </a>
+                </Link>
+                )
+            ))}
             <Link passHref href={`tel:${phone}`}>
               <a href="/" className="button-main button-footer">
                 <img src="/icons/icon-phone.svg" alt="icon-phone" />
