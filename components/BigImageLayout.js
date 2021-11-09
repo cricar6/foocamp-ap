@@ -29,7 +29,7 @@ function getContent(innerContent) {
   }
 }
 
-export default function BigImageLayout({ data, variation }) {
+export default function BigImageLayout({ data, variation, cta }) {
   const layoutData = {
     title: data?.title,
     content:
@@ -46,20 +46,23 @@ export default function BigImageLayout({ data, variation }) {
     },
   };
 
+  const linkComponent = layoutData.cta.url
+    && (
+    <Link href={`/${layoutData.cta.url}`}>
+      <span className="big-image-layout__button">
+        { layoutData.cta.label }
+      </span>
+    </Link>
+    );
+  const ctaElement = cta || linkComponent;
+
   return (
     <div className={getVariation('big-image-layout', variation)}>
       <div className="big-image-layout__content">
         { layoutData.title && <h2 className="big-image-layout__title">{ layoutData.title }</h2> }
         { layoutData.content
           && getContent(layoutData.content) }
-        { layoutData.cta.url
-          && (
-            <Link href={`/${layoutData.cta.url}`}>
-              <span className="big-image-layout__button">
-                { layoutData.cta.label }
-              </span>
-            </Link>
-          ) }
+        { ctaElement }
       </div>
       <div
         className="big-image-layout__image"

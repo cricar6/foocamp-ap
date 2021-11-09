@@ -72,6 +72,10 @@
 
       margin-bottom: 50px;
       max-width: 480px;
+
+      @media (min-width: $bp-sm) {
+        margin-bottom: 30px;
+      }
     }
 
     > hr {
@@ -86,10 +90,6 @@
       @include heading-1();
 
       margin-bottom: 30px;
-
-      @media (min-width: $bp-md) {
-        margin-bottom: 50px;
-      }
     }
   }
 

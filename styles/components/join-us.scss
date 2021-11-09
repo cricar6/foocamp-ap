@@ -18,4 +18,15 @@
       margin-bottom: 50px;
     }
   }
+
+  .icon-cta {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 220px;
+  }
+
+  .svg-icon-whatsapp {
+    fill: black; // Must change the svg color
+  }
 }

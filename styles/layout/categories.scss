@@ -17,10 +17,10 @@
 
     position: relative;
     padding-left: 15px;
-    margin-left: 30px;
     color: $ayp-grey-70;
     text-decoration: none;
     font-family: $main-font;
+    cursor: pointer;
 
     &::before {
       content: "\2039";

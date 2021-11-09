@@ -37,6 +37,7 @@
 
   @media (min-width: $bp-md) {
     max-width: $inner-container;
+    padding: 0;
     margin: 0 auto;
   }
 }

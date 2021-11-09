@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import BigImageLayout from './BigImageLayout';
 import CategoryLink from './CategoryLink';
+import { GO_BACK } from '../utils/constants';
 
 export default function ProjectChallenge({
   fields: {
@@ -18,21 +20,15 @@ export default function ProjectChallenge({
     projectTitle,
   },
 }) {
-  const backBtn = {
-    href: '/proyectos',
-    label: 'Volver',
-  };
-
+  const router = useRouter();
   return (
     <section className="project-challenge">
       {categories
         && (
         <>
-          <Link passHref href={backBtn.href}>
-            <a href="/" className="categories__back">
-              {backBtn.label}
-            </a>
-          </Link>
+          <span role="presentation" onClick={() => router.back()} className="categories__back">
+            {GO_BACK}
+          </span>
           <div className="categories__wrapper">
             <ul className="categories categories--vertical-space">
               {categories.map(({
