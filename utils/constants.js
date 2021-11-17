@@ -26,4 +26,5 @@ export const PAGINATOR_NUMBERS_TYPE = 'numbers';
 export const WHATSAPP = 'Whatsapp';
 export const WHATSAPP_LINK = 'https://wa.link/s8c7xg';
 export const WHATSAPP_IMG = '';
+export const EMAIL_CAPTION = 'Incríbete ahora';
 export const GO_BACK = 'Volver';

@@ -29,7 +29,12 @@ function getContent(innerContent) {
   }
 }
 
-export default function BigImageLayout({ data, variation, cta }) {
+export default function BigImageLayout({
+  data,
+  variation,
+  cta,
+  email,
+}) {
   const layoutData = {
     title: data?.title,
     content:
@@ -62,6 +67,7 @@ export default function BigImageLayout({ data, variation, cta }) {
         { layoutData.title && <h2 className="big-image-layout__title">{ layoutData.title }</h2> }
         { layoutData.content
           && getContent(layoutData.content) }
+        { email && email }
         { ctaElement }
       </div>
       <div

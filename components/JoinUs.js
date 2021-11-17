@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import BigImageLayout from './BigImageLayout';
-import { WHATSAPP, WHATSAPP_LINK } from '../utils/constants';
+import { WHATSAPP, WHATSAPP_LINK, EMAIL_CAPTION } from '../utils/constants';
 
 export default function JoinUs({ fields }) {
   const { pathname } = useRouter();
@@ -9,6 +9,7 @@ export default function JoinUs({ fields }) {
   const {
     title,
     description,
+    joinUsEmail,
     cta: {
       fields: {
         label,
@@ -40,6 +41,21 @@ export default function JoinUs({ fields }) {
     </Link>,
   } : {};
 
+  const emailSection = (joinUsEmail && isVolunteers) && (
+    <div className="join-us-email">
+      <p>{EMAIL_CAPTION}</p>
+      <div className="join-us-email__content">
+        <img
+          role="presentation"
+          aria-hidden="true"
+          src="/icons/icon-mail.svg"
+          alt=""
+        />
+        <p>{joinUsEmail}</p>
+      </div>
+    </div>
+  );
+
   return (
     <article className="join-us">
       <BigImageLayout
@@ -53,6 +69,7 @@ export default function JoinUs({ fields }) {
           imgTitle,
         }}
         {...newProp}
+        email={emailSection}
       />
     </article>
   );
