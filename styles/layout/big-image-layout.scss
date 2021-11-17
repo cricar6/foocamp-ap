@@ -1,3 +1,23 @@
+.join-us-email {
+  @include body();
+
+  & > * {
+    margin-bottom: 15px;
+  }
+
+  &__content {
+    display: flex;
+
+    p {
+      font-weight: 500;
+    }
+
+    img {
+      margin-right: 24px;
+    }
+  }
+}
+
 .big-image-layout {
   @include container();
   @include container-flex-column();

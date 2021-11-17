@@ -64,12 +64,14 @@
     }
 
     &__name {
+      margin-top: 10px;
       font-weight: 500;
-      line-height: 33px;
+      line-height: 22px;
       color: $ayp-grey-80;
     }
 
     &__copy {
+      margin-top: 14px;
       font-size: 14px;
       line-height: 18px;
     }
