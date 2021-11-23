@@ -1,6 +1,9 @@
 import ComponentListRenderer from './ComponentListRenderer';
 
-export default function Layout({ children, masterPageProps }) {
+export default function Layout({
+  children,
+  masterPageProps = { bottomComponents: [], topComponents: [] },
+}) {
   const { bottomComponents, topComponents } = masterPageProps;
 
   return (
