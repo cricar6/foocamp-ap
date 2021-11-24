@@ -31,11 +31,11 @@ export default function LastProjects({ fields }) {
         <div className="last-projects__categories">
           { categories?.map(({
             sys: { id },
-            fields: { title: categoryTitle, icon },
+            fields: { title: categoryTitle, icon, link: iconUrl },
           }) => (
             <ProjectIcon
               key={id}
-              url="#"
+              url={iconUrl}
               text={categoryTitle}
               icon={icon}
               variation={['none']}
