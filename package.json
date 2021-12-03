@@ -1,6 +1,6 @@
 {
-  "name": "next-contentful-boilerplate",
-  "version": "0.1.0",
+  "name": "webayp",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
